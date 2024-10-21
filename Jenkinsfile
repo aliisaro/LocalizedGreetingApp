@@ -3,14 +3,14 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS_ID = 'dockerhub_credential'
-        DOCKERHUB_REPO = ''
+        DOCKERHUB_REPO = 'aliisar/localizedgreetingapp'
         DOCKER_IMAGE_TAG = 'latest'
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git ''
+                git 'https://github.com/aliisaro/LocalizedGreetingApp.git'
             }
         }
         stage('Run Tests') {
