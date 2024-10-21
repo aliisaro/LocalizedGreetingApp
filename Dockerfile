@@ -1,4 +1,11 @@
-FROM ubuntu:latest
-LABEL authors="aliis"
+FROM maven:latest
 
-ENTRYPOINT ["top", "-b"]
+WORKDIR /app
+
+COPY pom.xml /app/
+
+COPY . /app/
+
+RUN mvn package
+
+cmd ["java", "-jar", "target/test.jar"]
